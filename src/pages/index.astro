@@ -1,19 +1,33 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
+const link= [
+	{
+		href:'about',
+	title:'Documentation',
+	body:'Learn how Astro works and explore the official API docs.',
+	},
+	{
+		href:'about',
+	title:'Integrations',
+	body:'Supercharge your project with new frameworks and libraries.',
+	},
+	{
+		href:'about',
+	title:'Themes',
+	body:'Explore a galaxy of community-built starter themes.',
+	},
+	{
+		href:'about',
+	title:'Community',
+	body:'Come say hi to our amazing Discord community. ❤️',
+	},
+]
 ---
 
 <Layout title="Welcome to Astro.">
 	<main>
-		<svg
-			class="astro-a"
-			width="495"
-			height="623"
-			viewBox="0 0 495 623"
-			fill="none"
-			xmlns="http://www.w3.org/2000/svg"
-			aria-hidden="true"
-		>
+		
 			<path
 				fill-rule="evenodd"
 				clip-rule="evenodd"
@@ -60,7 +74,13 @@ import Card from '../components/Card.astro';
 				body="Come say hi to our amazing Discord community. ❤️"
 			/>
 		</ul>
+		<ul>
+			{link.map((link_item)=>{
+				return <li><a href={link_item.href}>{link_item.title}</a><div><p>{link_item.body}</p></div></li>
+			})}
+		</ul>
 	</main>
+
 </Layout>
 
 <style>
