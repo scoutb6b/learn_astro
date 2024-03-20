@@ -1,5 +1,32 @@
-<ul>
-  <li><a href="/">top</a></li>
-  <li><a href="/about">会社概要</a></li>
-  <li><a href="/about/contact">お問い合わせ</a></li>
-</ul>
+---
+import '../css/style.scss'
+
+const globalNav =[
+  {
+    href:"/",
+    label:"TOP",
+  },
+  {
+    href:"/about",
+    label:"会社情報",
+  },
+  {
+    href:"/about/contact",
+    label:"お問い合わせ",
+  },
+];
+
+const active = "/";
+---
+
+<nav>
+  <ul>
+    {
+      globalNav.map((item)=>
+      <li class:list={[(item.href === active && 'is-active')]}>
+        <a href={item.href}>{item.label}</a>
+      </li>
+      )
+    }
+  </ul>
+</nav>
