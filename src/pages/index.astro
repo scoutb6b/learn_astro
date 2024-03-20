@@ -3,12 +3,21 @@ import Header from '../components/Header.astro';
 import Alert from '../components/Alert.astro';
 import Nav from '../components/Nav.astro';
 import  '../css/style.scss';
+
+import {getBlogs} from '../library/microcms';
+const response = await getBlogs({fields:["id","title"]});
 ---
 
 <head>
 	<meta charset="UTF-8">
 </head>
 <body>
+	<ul>
+		{console.log(response)}
+		{response.contents.map((content)=>
+			<li><a href={content.id}>{content.title}</a></li>
+		)}
+	</ul>
 	<main>
 		<Nav />
 		<Alert />
